@@ -3,29 +3,29 @@ import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Code, Lightbulb, User } from 'lucide-react';
 
 const fitnessAppImages = [
-  '/IMG_9773.jpg',
-  '/IMG_9774.jpg',
-  '/IMG_9775.jpg',
-  '/IMG_9776.jpg',
-  '/IMG_9777.jpg',
-  '/IMG_9778.jpg',
-  '/IMG_9779.jpg',
-  '/IMG_9780.jpg',
-  '/IMG_9781.jpg',
-  '/IMG_9782.jpg',
+  process.env.PUBLIC_URL + '/IMG_9773.jpg',
+  process.env.PUBLIC_URL + '/IMG_9774.jpg',
+  process.env.PUBLIC_URL + '/IMG_9775.jpg',
+  process.env.PUBLIC_URL + '/IMG_9776.jpg',
+  process.env.PUBLIC_URL + '/IMG_9777.jpg',
+  process.env.PUBLIC_URL + '/IMG_9778.jpg',
+  process.env.PUBLIC_URL + '/IMG_9779.jpg',
+  process.env.PUBLIC_URL + '/IMG_9780.jpg',
+  process.env.PUBLIC_URL + '/IMG_9781.jpg',
+  process.env.PUBLIC_URL + '/IMG_9782.jpg',
 ];
 
 const cardiologyImages = [
-  '/Web Agent 1.jpg',
-  '/Web Agent 2.jpg',
-  '/Web Agent 3.jpg',
+  process.env.PUBLIC_URL + '/Web Agent 1.jpg',
+  process.env.PUBLIC_URL + '/Web Agent 2.jpg',
+  process.env.PUBLIC_URL + '/Web Agent 3.jpg',
 ];
 const racingImages = [
-  '/image(2).jpg',
-  '/image(3).jpg',
+  process.env.PUBLIC_URL + '/image(2).jpg',
+  process.env.PUBLIC_URL + '/image(3).jpg',
 ];
 const rocketImages = [
-  '/Rocket.jpg',
+  process.env.PUBLIC_URL + '/Rocket.jpg',
 ];
 
 const App = () => {
@@ -89,13 +89,13 @@ const App = () => {
       {/* Hero Section */}
       <section id="hero" className="relative h-screen flex items-center justify-center text-center bg-gray-900 text-white overflow-hidden">
         {/* Background image/gradient with overlay */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/portfoliobackground.jpg')" }}></div>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/portfoliobackground.jpg'})` }}></div>
         <div className="absolute inset-0 bg-black opacity-40"></div> {/* Less dark overlay */}
 
         <div className="relative z-10 p-8 rounded-lg max-w-4xl mx-auto">
           {/* Profile Picture */}
           <img
-            src="/IMG_9715.jpg"
+            src={process.env.PUBLIC_URL + '/IMG_9715.jpg'}
             alt="James Hammers"
             className="w-48 h-48 rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-lg object-cover"
           />
@@ -212,6 +212,39 @@ const App = () => {
                   </div>
                 ))}
               </div>
+              {galleryOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+                  <button
+                    className="absolute top-4 right-4 text-white text-3xl font-bold focus:outline-none"
+                    onClick={() => setGalleryOpen(false)}
+                    aria-label="Close gallery"
+                  >
+                    &times;
+                  </button>
+                  <button
+                    className="absolute left-4 text-white text-3xl font-bold focus:outline-none"
+                    onClick={() => setGalleryIndex((galleryIndex - 1 + cardiologyImages.length) % cardiologyImages.length)}
+                    aria-label="Previous image"
+                  >
+                    &#8592;
+                  </button>
+                  <div className="max-h-[80vh] max-w-[90vw] rounded shadow-lg border-4 border-white overflow-hidden flex items-center justify-center bg-black">
+                    <img
+                      src={cardiologyImages[galleryIndex]}
+                      alt={`Cardiology AI Screenshot ${galleryIndex+1}`}
+                      className="h-[70vh] w-auto object-cover object-top"
+                    />
+                  </div>
+                  <button
+                    className="absolute right-4 text-white text-3xl font-bold focus:outline-none"
+                    style={{ top: '50%', transform: 'translateY(-50%)' }}
+                    onClick={() => setGalleryIndex((galleryIndex + 1) % cardiologyImages.length)}
+                    aria-label="Next image"
+                  >
+                    &#8594;
+                  </button>
+                </div>
+              )}
               <h3 className="text-2xl font-semibold text-gray-800 mb-3">Web-based Cardiology AI Assistant</h3>
               <p className="text-gray-700 mb-4">
                 Developed a web-based clinical AI assistant using Flask, FAISS, Ollama, and LLaMA 3.2. Simulates patient intake and delivers context-aware cardiology diagnoses using RAG over MIMIC-III data.
@@ -369,7 +402,7 @@ const App = () => {
             <div className="bg-gray-50 p-8 rounded-lg shadow-md border-b-4 border-red-500 hover:shadow-xl transition-shadow duration-300">
               <div className="h-64 w-full rounded overflow-hidden mb-4 shadow-md border border-gray-200 cursor-pointer flex items-center justify-center" onClick={() => { setGalleryIndex(0); setGalleryType('rocket'); setGalleryOpen(true); }}>
                 <img
-                  src="/Rocket.jpg"
+                  src={process.env.PUBLIC_URL + '/Rocket.jpg'}
                   alt="Zephyr Rocket"
                   className="h-full w-full object-cover object-top"
                 />
