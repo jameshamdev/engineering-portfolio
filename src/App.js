@@ -16,9 +16,9 @@ const fitnessAppImages = [
 ];
 
 const cardiologyImages = [
-  process.env.PUBLIC_URL + '/Web Agent 1.jpg',
-  process.env.PUBLIC_URL + '/Web Agent 2.jpg',
-  process.env.PUBLIC_URL + '/Web Agent 3.jpg',
+  process.env.PUBLIC_URL + '/Web_Agent_1.jpg',
+  process.env.PUBLIC_URL + '/Web_Agent_2.jpg',
+  process.env.PUBLIC_URL + '/Web_Agent_3.jpg',
 ];
 const racingImages = [
   process.env.PUBLIC_URL + '/image(2).jpg',
