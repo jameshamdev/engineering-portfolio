@@ -101,7 +101,7 @@ const App = () => {
           />
           {/* Hero Heading */}
           <h2 className="text-5xl font-extrabold mb-4 leading-tight">
-            Hi, I'm <span className="text-blue-400">James Hammers</span>
+            Hi! I'm <span className="text-blue-400">James Hammers</span>
           </h2>
           {/* Hero Subtitle/Tagline */}
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
