@@ -69,7 +69,7 @@ const experience = [
   {
     role: 'Undergraduate Researcher — Healthcare AI Laboratory',
     org: 'Penn Medicine Medical Center, under Dr. Jonathan Woo (Chair, Dept. of Medicine)',
-    date: 'Jan. 2025 – Present',
+    date: 'Jan. 2025 – Mar. 2026',
     bullets: [
       'Built a low-latency cardiology AI assistant using Flask, FAISS, and LLaMA 3 (via Ollama), with RAG-based semantic search over the MIMIC-III clinical dataset for real-time diagnoses and treatment recommendations.',
       'Developing multi-agent systems modeling specialized clinical roles and applying reinforcement learning to optimize the clinical decision pipeline and diagnostic reward signal design.',
