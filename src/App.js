@@ -436,11 +436,13 @@ const App = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink-950/40 to-ink-950" />
 
         <div className="relative z-10 px-6 max-w-3xl mx-auto animate-fadeUp">
-          <img
-            src={process.env.PUBLIC_URL + '/IMG_9715.jpg'}
-            alt="James Hammers"
-            className="w-32 h-32 rounded-full mx-auto mb-6 border-2 border-circuit-500/50 shadow-glow object-cover"
-          />
+          <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full mx-auto mb-6 p-1 bg-gradient-to-br from-circuit-400/60 via-circuit-500/20 to-transparent shadow-glow-lg">
+            <img
+              src={process.env.PUBLIC_URL + '/IMG_9715.jpg'}
+              alt="James Hammers"
+              className="w-full h-full rounded-full border-2 border-ink-950 object-cover object-center"
+            />
+          </div>
           <p className="font-mono text-sm text-circuit-400 mb-4 tracking-wide">
             <span className="inline-block w-2 h-2 rounded-full bg-circuit-400 mr-2 animate-pulseSlow align-middle" />
             Electrical &amp; Computer Engineering · Princeton University
@@ -467,7 +469,7 @@ const App = () => {
             </button>
           </div>
           <p className="font-mono text-xs text-slate-500 mt-12">
-            &gt; status: building <span className="animate-pulseSlow">_</span>
+            &gt; status: online <span className="animate-pulseSlow">_</span>
           </p>
         </div>
       </section>
@@ -475,6 +477,7 @@ const App = () => {
       {/* About Me Section */}
       <section id="about" className="scroll-mt-24 py-24 px-6">
         <div className="container mx-auto max-w-4xl">
+          <span className="block font-mono text-xs text-circuit-500 mb-3 tracking-widest">01 / ABOUT</span>
           <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
             <User className="text-circuit-400" size={28} /> About Me
           </h2>
@@ -504,6 +507,7 @@ const App = () => {
       {/* Experience Section */}
       <section id="experience" className="scroll-mt-24 py-24 px-6 bg-ink-900/40">
         <div className="container mx-auto max-w-4xl">
+          <span className="block font-mono text-xs text-circuit-500 mb-3 tracking-widest">02 / EXPERIENCE</span>
           <h2 className="text-3xl font-bold text-white mb-12 flex items-center gap-3">
             <Briefcase className="text-circuit-400" size={28} /> Experience
           </h2>
@@ -533,6 +537,7 @@ const App = () => {
       {/* Skills Section */}
       <section id="skills" className="scroll-mt-24 py-24 px-6">
         <div className="container mx-auto max-w-6xl">
+          <span className="block font-mono text-xs text-circuit-500 mb-3 tracking-widest">03 / SKILLS</span>
           <h2 className="text-3xl font-bold text-white mb-12 flex items-center gap-3">
             <Lightbulb className="text-circuit-400" size={28} /> Skills
           </h2>
@@ -566,6 +571,7 @@ const App = () => {
       {/* Projects Section */}
       <section id="projects" className="scroll-mt-24 py-24 px-6 bg-ink-900/40">
         <div className="container mx-auto max-w-6xl">
+          <span className="block font-mono text-xs text-circuit-500 mb-3 tracking-widest">04 / PROJECTS</span>
           <h2 className="text-3xl font-bold text-white mb-12 flex items-center gap-3">
             <Code className="text-circuit-400" size={28} /> Projects
           </h2>
@@ -576,21 +582,22 @@ const App = () => {
                 className="rounded-2xl border border-white/10 bg-ink-900 p-7 hover:border-circuit-500/40 hover:shadow-glow transition-all duration-300 flex flex-col"
               >
                 {p.gallery && (
-                  <div className="flex overflow-x-auto space-x-3 mb-5 -mx-1 px-1">
-                    {galleryMap[p.gallery].map((src, i) => (
-                      <div
-                        key={i}
-                        className="h-44 w-64 rounded-lg overflow-hidden border border-white/10 flex-shrink-0 cursor-pointer transition-transform duration-200 hover:scale-105"
-                        onClick={() => openGallery(p.gallery, i)}
-                      >
-                        <img
-                          src={src}
-                          alt={`${p.title} screenshot ${i + 1}`}
-                          className="h-full w-full object-cover object-top"
-                          onError={(e) => { e.target.onerror = null; e.target.src = PLACEHOLDER_IMG; }}
-                        />
-                      </div>
-                    ))}
+                  <div
+                    className="relative aspect-video w-full rounded-xl overflow-hidden border border-white/10 mb-5 cursor-pointer group"
+                    onClick={() => openGallery(p.gallery, 0)}
+                  >
+                    <img
+                      src={galleryMap[p.gallery][0]}
+                      alt={`${p.title} preview`}
+                      className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => { e.target.onerror = null; e.target.src = PLACEHOLDER_IMG; }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {galleryMap[p.gallery].length > 1 && (
+                      <span className="absolute bottom-2 right-2 font-mono text-xs px-2 py-1 rounded-full bg-ink-950/80 border border-white/10 text-slate-300">
+                        +{galleryMap[p.gallery].length - 1} more
+                      </span>
+                    )}
                   </div>
                 )}
 
@@ -653,6 +660,7 @@ const App = () => {
       {/* Contact Section */}
       <section id="contact" className="scroll-mt-24 py-24 px-6">
         <div className="container mx-auto max-w-3xl text-center">
+          <span className="block font-mono text-xs text-circuit-500 mb-3 tracking-widest">05 / CONTACT</span>
           <h2 className="text-3xl font-bold text-white mb-6">Get In Touch</h2>
           <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto">
             I'm always open to discussing new projects, research collaborations, or hardware
@@ -726,14 +734,19 @@ const App = () => {
               &#8592;
             </button>
           )}
-          <div className="max-h-[80vh] max-w-[90vw] rounded-lg shadow-glow-lg border border-white/10 overflow-hidden flex items-center justify-center bg-black">
+          <div className="max-h-[85vh] max-w-[90vw] rounded-lg shadow-glow-lg border border-white/10 overflow-hidden flex items-center justify-center bg-black">
             <img
               src={currentGallery[galleryIndex]}
               alt="Project screenshot"
-              className="h-[70vh] w-auto object-cover object-top"
+              className="max-h-[85vh] max-w-[90vw] w-auto h-auto object-contain"
               onError={(e) => { e.target.onerror = null; e.target.src = PLACEHOLDER_IMG; }}
             />
           </div>
+          {currentGallery.length > 1 && (
+            <span className="absolute bottom-4 left-1/2 -translate-x-1/2 font-mono text-xs text-slate-400">
+              {galleryIndex + 1} / {currentGallery.length}
+            </span>
+          )}
           {currentGallery.length > 1 && (
             <button
               className="absolute right-4 text-white text-3xl font-bold focus:outline-none"
