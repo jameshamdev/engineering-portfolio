@@ -25,6 +25,8 @@ const cardiologyImages = [
   process.env.PUBLIC_URL + '/Web_Agent_3.jpg',
 ];
 const racingImages = [
+  process.env.PUBLIC_URL + '/RacingPCB_1.jpg',
+  process.env.PUBLIC_URL + '/RacingPCB_2.jpg',
   process.env.PUBLIC_URL + '/image(2).jpg',
   process.env.PUBLIC_URL + '/image(3).jpg',
 ];
@@ -433,44 +435,43 @@ const App = () => {
             backgroundSize: '32px 32px',
           }}
         />
+        <div className="absolute -left-32 top-1/3 w-[28rem] h-[28rem] rounded-full bg-circuit-500/10 blur-3xl pointer-events-none" />
+        <div className="absolute -right-32 bottom-1/4 w-[28rem] h-[28rem] rounded-full bg-signal-500/10 blur-3xl pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink-950/40 to-ink-950" />
 
-        <div className="relative z-10 px-6 max-w-3xl mx-auto animate-fadeUp">
-          <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full mx-auto mb-6 p-1 bg-gradient-to-br from-circuit-400/60 via-circuit-500/20 to-transparent shadow-glow-lg">
+        <div className="relative z-10 px-6 max-w-4xl lg:max-w-5xl mx-auto animate-fadeUp">
+          <div className="w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48 rounded-full mx-auto mb-8 p-1 bg-gradient-to-br from-circuit-400/60 via-circuit-500/20 to-transparent shadow-glow-lg">
             <img
               src={process.env.PUBLIC_URL + '/IMG_9715.jpg'}
               alt="James Hammers"
               className="w-full h-full rounded-full border-2 border-ink-950 object-cover object-center"
             />
           </div>
-          <p className="font-mono text-sm text-circuit-400 mb-4 tracking-wide">
+          <p className="font-mono text-sm lg:text-base text-circuit-400 mb-4 tracking-wide">
             <span className="inline-block w-2 h-2 rounded-full bg-circuit-400 mr-2 animate-pulseSlow align-middle" />
             Electrical &amp; Computer Engineering · Princeton University
           </p>
-          <h1 className="text-4xl sm:text-6xl font-bold text-white mb-5 leading-tight tracking-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight tracking-tight">
             James Hammers
           </h1>
-          <p className="text-lg sm:text-xl text-slate-400 mb-10 max-w-xl mx-auto">
-            I build circuits, firmware, and the software that ties them together —
-            from flex PCBs on a race car to gesture-controlled embedded systems.
+          <p className="text-lg sm:text-xl lg:text-2xl text-slate-400 mb-12 max-w-xl lg:max-w-2xl mx-auto">
+            I design circuit boards and the code that wakes them up — lately that's meant
+            flex boards for a race car and a gesture-controlled MP3 player just for fun.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={() => scrollToSection('projects')}
-              className="bg-circuit-500 hover:bg-circuit-400 text-ink-950 font-semibold py-3 px-7 rounded-full shadow-glow transition-all duration-300 hover:scale-105"
+              className="bg-circuit-500 hover:bg-circuit-400 text-ink-950 font-semibold py-3.5 px-8 text-base lg:text-lg rounded-full shadow-glow transition-all duration-300 hover:scale-105"
             >
               View My Work
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="border border-white/15 hover:border-circuit-400/60 text-slate-200 font-medium py-3 px-7 rounded-full transition-all duration-300 hover:scale-105"
+              className="border border-white/15 hover:border-circuit-400/60 text-slate-200 font-medium py-3.5 px-8 text-base lg:text-lg rounded-full transition-all duration-300 hover:scale-105"
             >
               Get In Touch
             </button>
           </div>
-          <p className="font-mono text-xs text-slate-500 mt-12">
-            &gt; status: online <span className="animate-pulseSlow">_</span>
-          </p>
         </div>
       </section>
 
